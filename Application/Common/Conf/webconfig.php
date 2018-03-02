@@ -8,7 +8,7 @@ return array(
     'ADMIN_EMAIL'               =>  'baijunyao@baijunyao.com',          // 站长邮箱
 
 //*************************************优化推广****************************************
-    'WEB_NAME'                  =>  '白俊遥博客',             //网站名：
+    'WEB_NAME'                  =>  "DarryKinger's Blog",             //网站名：
     'WEB_KEYWORDS'              =>  '白俊遥,帅白,技术博客,个人博客,bjyblog',         //网站关键字
     'WEB_DESCRIPTION'           =>  '白俊遥的个人技术博客,bjyblog官方网站',      //网站描述
     'AUTHOR'                    =>  '白俊遥',               //默认作者
@@ -52,7 +52,7 @@ return array(
     'EMAIL_FROM_NAME'           =>  '',      //  发件名
 //***********************************评论管理***********************************************
     'COMMENT_REVIEW'            =>  '1',       // 评论审核1:开启 0:关闭
-    'COMMENT_SEND_EMAIL'        =>  '0',   // 被评论邮件通知1:开启 0:关闭
+    'COMMENT_SEND_EMAIL'        =>  '1',   // 被评论邮件通知1:开启 0:关闭
     'EMAIL_RECEIVE'             =>  '',        // 接收评论通知邮箱
 
 );

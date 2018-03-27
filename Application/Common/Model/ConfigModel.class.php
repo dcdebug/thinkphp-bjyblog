@@ -17,15 +17,18 @@ class ConfigModel extends BaseModel{
     // 修改数据
     public function editData(){
         $data=I('post.');
-        // p($data);die;
+    /*     p($data);die;*/
         foreach ($data as $k => $v) {
             $this->where(array('name'=>$k))->setField('value',$v);
             $data[$k]=htmlspecialchars_decode($v);
         }
+
+        $this->where(array('name'=>'WEB_STATUS'))->setField('value',$data['WEB_STATUS']);
+
         $data['WEB_STATISTICS']=str_replace( "'",'"',$data['WEB_STATISTICS']);
         $data['CHANGYAN_COMMENT']=str_replace( "'",'"',$data['CHANGYAN_COMMENT']);
         $data['CHANGYAN_COMMENT']=str_replace( '<div id="SOHUCS"></div>','',$data['CHANGYAN_COMMENT']);
-        $str=<<<php
+      /*  $str=<<<php
 <?php
 return array(
 //此配置项为自动生成请勿直接修改；如需改动请在后台网站设置
@@ -85,7 +88,7 @@ return array(
 
 );
 php;
-        file_put_contents('./Application/Common/Conf/webconfig.php', $str);
+        file_put_contents('./Application/Common/Conf/webconfig.php', $str);*/
         return true;
     }
 

@@ -11,10 +11,21 @@ class HomeBaseController extends BaseController{
     public function _initialize(){
         parent::_initialize();
         // 判断博客是否关闭
-        if(C('WEB_STATUS')!=1){
+
+        //读取数据库中网站是否关闭的设置
+        $isopen = M("Config")->field("id,name,value")->where(array('name'=>'WEB_STATUS'))->select();
+        if(!empty($isopen)&&isset($isopen[0]['value'])&&$isopen[0]['value']!=1){
+            $data['closeinfo'] = M("Config")->field("id,name,value")->where(array('name'=>'WEB_CLOSE_WORD'))->select();
+/*            $this->assign($data);*/
+            $this->assign($data);
+            $this->display('Public/web_close');
+            exit;
+        }
+
+  /*      if(C('WEB_STATUS')!=1){
             $this->display('Public/web_close');
             exit();
-        }
+        }*/
         // 组合置顶推荐where
         $recommend_map=array(
             'is_show'=>1,

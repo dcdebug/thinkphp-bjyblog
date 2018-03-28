@@ -119,6 +119,9 @@ class IndexController extends HomeBaseController {
         if (!empty($_SESSION['user']['id'])) {
             $assign['user_email']=M('Oauth_user')->getFieldById($_SESSION['user']['id'],'email');
         }
+
+        p($assign);
+
         $this->assign($assign);
         $this->display();
     }

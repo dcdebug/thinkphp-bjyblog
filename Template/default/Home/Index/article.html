@@ -16,7 +16,7 @@
             <foreach name="article['current']['tag']" item="v"> <a class="b-tag-name" href="{:U('Home/Index/tag',array('tid'=>$v['tid']))}">{$v['tname']}</a>
             </foreach></li></if></ul></div><div class="col-xs-12 col-md-12 col-lg-12 b-content-word">
         {$article['current']['content']}<eq name="article['current']['is_original']" value="1"><p class="b-h-20"></p><p class="b-copyright">
-        {$Think.config.COPYRIGHT_WORD}</p></eq><ul class="b-prev-next"><li class="b-prev"> 上一篇：<empty name="article['prev']"> <span>没有了</span><else/>
+        {$copyright['value']}</p></eq><ul class="b-prev-next"><li class="b-prev"> 上一篇：<empty name="article['prev']"> <span>没有了</span><else/>
         <a href="{$article['prev']['url']}">{$article['prev']['title']}</a></empty></li><li class="b-next">
         下一篇：<empty name="article['next']"> <span>没有了</span><else/> <a href="{$article['next']['url']}">{$article['next']['title']}</a></empty>
     </li></ul></div></div><include file="Public/public_comment"/></div><include file="Public/public_right"/></div><div class="row"

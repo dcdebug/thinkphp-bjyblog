@@ -111,16 +111,17 @@ class IndexController extends HomeBaseController {
         }
         // 获取评论数据
         $comment=D('Comment')->getChildData($aid);
+        $copyright=D("config")->where(array("name"=>'COPYRIGHT_WORD'))->select();
+        $copyright=$copyright[0];
         $assign=array(
             'article'=>$article,
             'comment'=>$comment,
-            'cid'=>$article['current']['cid']
+            'cid'=>$article['current']['cid'],
+            'copyright'=>$copyright,
             );
         if (!empty($_SESSION['user']['id'])) {
             $assign['user_email']=M('Oauth_user')->getFieldById($_SESSION['user']['id'],'email');
         }
-
-        p($assign);
 
         $this->assign($assign);
         $this->display();

@@ -47,10 +47,11 @@ class ArticleModel extends BaseModel{
         $data['content']=htmlspecialchars_decode($data['content']);
         // 判断是否修改文章中图片的默认的alt 和title
         $image_title_alt_word=C('IMAGE_TITLE_ALT_WORD');
+        $configs = D("config")->where(array("name"=>'IMAGE_TITLE_ALT_WORD'))->select();
         if(!empty($image_title_alt_word)){
             // 修改图片默认的title和alt
-            $data['content']=preg_replace('/title=\"(?<=").*?(?=")\"/','title="白俊遥博客"',$data['content']);
-            $data['content']=preg_replace('/alt=\"(?<=").*?(?=")\"/','alt="白俊遥博客"',$data['content']);
+            $data['content']=preg_replace('/title=\"(?<=").*?(?=")\"/','title="DarryKinger博客"',$data['content']);
+            $data['content']=preg_replace('/alt=\"(?<=").*?(?=")\"/','alt="DarryKinger博客"',$data['content']);
         }
         // 将绝对路径转换为相对路径
         $data['content']=preg_replace('/src=\"^\/.*\/Upload\/image\/ueditor$/','src="/Upload/image/ueditor',$data['content']);
